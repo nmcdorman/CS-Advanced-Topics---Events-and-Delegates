@@ -17,11 +17,18 @@ namespace CS_Advanced_Topics___Events_and_Delegates
         //  3.  Raise the event
 
         //  1.
-        public delegate void VideoEncodedEventHandler(object source, VideoEventArgs args);   // Determines Signature
+        //public delegate void VideoEncodedEventHandler(object source, VideoEventArgs args);   // Determines Signature
 
         //  2.
-        public event VideoEncodedEventHandler VideoEncoded; // Past tense since the event happens when finished
-                
+        //public event VideoEncodedEventHandler VideoEncoded; // Past tense since the event happens when finished
+        
+        // MS delegates
+        // EventHandler
+        // EventHandler<TEventArgs>
+        // ^ can use instead of custom
+        public event EventHandler<VideoEventArgs> VideoEncoded;
+        public event EventHandler VideoEncoding;    // no arguments
+
         public void Encode(Video video)
         {
             Console.WriteLine("Encoding Video");
